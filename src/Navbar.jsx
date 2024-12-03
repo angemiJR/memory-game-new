@@ -9,8 +9,7 @@ function Navbar () {
         <div className="navbar">
             <nav>
                 <ul>
-                    {/* <li><Link to="/">Play</Link></li> */}
-                     {/* Emilija: I dont see why we need the Play button in navigation when we have it on start page */}
+                    <li><Link to="/">Start</Link></li>
                     <li><Link to="/login">Log In</Link></li>
                     <li><Link to="/sign-up">Sign up</Link></li>
                     <li><Link to="/user-info">{userName}</Link></li>
