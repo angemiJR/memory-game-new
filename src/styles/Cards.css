@@ -2,8 +2,8 @@
     position: relative;
     width: 11em;
     height: 15em;
-    margin: 10px;
     cursor: pointer;
+    place-self: center;
 }
 
 .front,
@@ -17,6 +17,7 @@
     justify-content: center;
     align-items: center;
     font-size: 1.2em;
+  
 }
 
 .front {

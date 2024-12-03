@@ -30,13 +30,15 @@ h2 {
 
 .header {
     width: 70%;
-    height: 20%;
-    display: block;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .cards {
-    width: 50%;
-    height: 70%;
+    width: 45%;
+    height: 80%;
     padding: 20px;
     display:grid;
     grid-template-columns: repeat(4, 1fr);
