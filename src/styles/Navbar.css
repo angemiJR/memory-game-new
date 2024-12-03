@@ -1,0 +1,22 @@
+nav {
+    display: flex;
+    justify-content: end;
+    width: 96vw;
+    height: 5vh;
+}
+ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    max-width: 250px;
+    width: 100%;
+    padding: 0;
+    /* somehow this pushes the limits of the container, idk why */
+    /* Emilija: this probbably happened because you did not had height on nav tag
+        I made a change where your nav height is 5vh and then made that main height
+        is 95vh and now looks ok */
+}
+
+a {
+    text-decoration: none;
+}

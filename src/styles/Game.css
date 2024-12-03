@@ -1,0 +1,44 @@
+@font-face {
+    font-family: 'PokemonFontSolid';
+    src: url('../assets/fonts/Pokemon_Solid.ttf') format('truetype');
+}
+
+h2 {
+    font-family: 'PokemonFontSolid', Arial, sans-serif;
+    font-size: 3em;
+    text-align: center;
+    color: rgb(255, 201, 75);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    -webkit-text-stroke: 2px rgba(70, 0, 0, 0.155);
+
+}
+
+
+
+.main {
+    width: 100vw;
+    height: 95vh;
+    background-image: url("../assets/wallpaper.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header {
+    width: 70%;
+    height: 20%;
+    display: block;
+}
+
+.cards {
+    width: 50%;
+    height: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
