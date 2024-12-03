@@ -1,22 +1,35 @@
-nav {
-    display: flex;
-    justify-content: end;
-    width: 96vw;
-    height: 5vh;
-}
-ul {
-    display: flex;
-    justify-content: space-around;
-    list-style: none;
-    max-width: 250px;
-    width: 100%;
-    padding: 0;
-    /* somehow this pushes the limits of the container, idk why */
-    /* Emilija: this probbably happened because you did not had height on nav tag
-        I made a change where your nav height is 5vh and then made that main height
-        is 95vh and now looks ok */
-}
-
-a {
-    text-decoration: none;
-}
+.navbar {
+    background-color: #ff6347;
+ }
+ 
+ nav {
+     display: flex;
+     justify-content: center;
+     max-width: 100%;
+     font-family:'Pokemon', sans-serif; 
+   
+ }
+ ul {
+     display: flex;
+     justify-content: space-between;
+     list-style: none;
+     gap: 40px;
+     padding: 5px;
+     /* somehow this pushes the limits of the container, idk why */
+     /* Emilija: this probbably happened because you did not had height on nav tag
+         I made a change where your nav height is 5vh and then made that main height
+         is 95vh and now looks ok */
+ }
+ 
+ 
+ a {
+     text-decoration: none;
+ }
+ a:hover {
+     cursor: pointer;
+ }
+ 
+ a:visited {
+     color: white;
+ 
+ }
