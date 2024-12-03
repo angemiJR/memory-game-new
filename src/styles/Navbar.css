@@ -7,6 +7,7 @@
      justify-content: center;
      max-width: 100%;
      font-family:'Pokemon', sans-serif; 
+     
    
  }
  ul {
@@ -15,6 +16,7 @@
      list-style: none;
      gap: 40px;
      padding: 5px;
+     color: white;
      /* somehow this pushes the limits of the container, idk why */
      /* Emilija: this probbably happened because you did not had height on nav tag
          I made a change where your nav height is 5vh and then made that main height
@@ -24,6 +26,7 @@
  
  a {
      text-decoration: none;
+     color: white;
  }
  a:hover {
      cursor: pointer;

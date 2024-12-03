@@ -1,0 +1,45 @@
+/* PlayGamePage.css */
+
+.play-game-page {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../assets/wallpaper.jpg');
+    background-size: cover;
+    background-position: center center; 
+    background-repeat: no-repeat; 
+    height: 100vh;
+    margin: 0;
+    font-family: 'Pokemon', sans-serif; 
+  }
+  
+  .pokemon-theme {
+    text-align: center;
+    background-color: #f7c8c8;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    font-size: 3rem;
+    color: #ff6347; 
+    margin-bottom: 20px;
+  }
+  
+  .start-button {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    background-color: #ff6347; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .start-button:hover {
+    background-color: #e0533b;
+  }
+  

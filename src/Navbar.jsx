@@ -6,7 +6,7 @@ function Navbar () {
     const userName = "Ferret";
 
     return (
-        <div>
+        <div className="navbar">
             <nav>
                 <ul>
                     <li><Link to="/">Play</Link></li>
