@@ -1,7 +1,11 @@
+@font-face {
+  font-family: 'PokemonFontSolid';
+  src: url('../assets/fonts/Pokemon_Solid.ttf') format('truetype');
+}
 /* PlayGamePage.css */
 
 .play-game-page {
-    height: 100vh;
+    height: 95vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,9 +13,8 @@
     background-size: cover;
     background-position: center center; 
     background-repeat: no-repeat; 
-    height: 100vh;
     margin: 0;
-    font-family: 'Pokemon', sans-serif; 
+    font-family: 'PokemonFontSolid', sans-serif; 
   }
   
   .pokemon-theme {
