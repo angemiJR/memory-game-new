@@ -8,44 +8,46 @@ function Game() {
     const [flippedCards, setFlippedCards] = useState([]); // Tracks flipped cards
     const [matchedCards, setMatchedCards] = useState([]); // Tracks matched cards
     const [score, setScore] = useState(0); // Game score
-    const [isDisabled, setIsDisabled] = useState(false); // Prevent clicks during checks
+    const [isLoading, setIsLoading] = useState(true); // Loading state
 
-    // Initialize the cards on component mount
+    // Fetch data from API and initialize cards
     useEffect(() => {
-        const cardContent = [
-            { id: 1, content: "Ditto" },
-            { id: 2, content: "Abilities: Limber" },
-            { id: 3, content: "Height: 3 units" },
-        ];
+        async function fetchCardData() {
+            try {
+                const response = await fetch("https://dog.ceo/api/breeds/image/random/6");
+                const data = await response.json();
+                const cardContent = data.message.map((imageUrl, index) => ({
+                    id: index, // Unique ID for each card pair
+                    content: imageUrl, // Image URL as content
+                }));
+                const shuffledCards = shuffleArray([...cardContent, ...cardContent].map((card, index) => ({
+                    ...card,
+                    uniqueId: index, // Unique ID for each card instance
+                })));
+                setCardData(shuffledCards);
+                setIsLoading(false);
+            } catch (error) {
+                console.error("Error fetching card data:", error);
+                setIsLoading(false);
+            }
+        }
 
-        // Duplicate and shuffle cards
-        const shuffledCards = shuffleArray([...cardContent, ...cardContent].map((card, index) => ({
-            ...card,
-            uniqueId: index,
-        })));
-
-        setCardData(shuffledCards);
+        fetchCardData();
     }, []);
 
-    // Shuffle an array 
+    // Shuffle an array
     const shuffleArray = (array) => {
-        const shuffled = [...array];
-        for (let i = shuffled.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-        }
-        return shuffled;
+        return array.sort(() => Math.random() - 0.5); 
     };
 
     // Handle card click
     const handleCardClick = (card) => {
-        if (isDisabled || flippedCards.some((c) => c.uniqueId === card.uniqueId)) return;
+        if (flippedCards.length === 2 || flippedCards.some((c) => c.uniqueId === card.uniqueId)) return;
 
         const newFlippedCards = [...flippedCards, card];
         setFlippedCards(newFlippedCards);
 
         if (newFlippedCards.length === 2) {
-            setIsDisabled(true);
             checkForMatch(newFlippedCards);
         }
     };
@@ -56,34 +58,36 @@ function Game() {
 
         if (firstCard.id === secondCard.id) {
             setMatchedCards((prev) => [...prev, firstCard.id]);
-            setScore((prevScore) => prevScore + 1);
+            setScore((prev) => prev + 1);
         }
 
-        // Reset flipped cards after a short delay
         setTimeout(() => {
             setFlippedCards([]);
-            setIsDisabled(false);
         }, 1000);
     };
 
     // Check if a card is flipped or matched
-    const isFlipped = (card) => flippedCards.some((c) => c.uniqueId === card.uniqueId) || matchedCards.includes(card.id);
+    const isFlipped = (card) =>
+        flippedCards.some((c) => c.uniqueId === card.uniqueId) || matchedCards.includes(card.id);
 
     return (
         <div className="main">
             <div className="header">
-               
                 <Score score={score} />
             </div>
             <div className="cards">
-                {cardData.map((card) => (
-                    <Cards
-                        key={card.uniqueId}
-                        content={card.content}
-                        isFlipped={isFlipped(card)}
-                        onClick={() => handleCardClick(card)}
-                    />
-                ))}
+                {isLoading ? (
+                    <p>Loading cards...</p>
+                ) : (
+                    cardData.map((card) => (
+                        <Cards
+                            key={card.uniqueId}
+                            content={card.content}
+                            isFlipped={isFlipped(card)}
+                            onClick={() => handleCardClick(card)}
+                        />
+                    ))
+                )}
             </div>
         </div>
     );

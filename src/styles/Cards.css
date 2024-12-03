@@ -6,7 +6,8 @@
     cursor: pointer;
 }
 
-.front, .back {
+.front,
+.back {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -25,12 +26,16 @@
     background-repeat: no-repeat;
     background-position: center;
     border: 3px solid rgb(207, 207, 207);
+    cursor: pointer;
 }
 
 .back {
     background-color: white;
     border: 3px solid rgb(207, 207, 207);
-    visibility: hidden; /* Hidden by default */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    visibility: hidden;
 }
 
 .card.show-back .front {
