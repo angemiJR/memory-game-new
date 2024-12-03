@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/PlayGamePage.css'; // Import the CSS for Pokémon theme
-import wallpaper from '../assets/wallpaper.jpg';
+
 
 const PlayGamePage = () => {
     const navigate = useNavigate(); // Hook for navigation
