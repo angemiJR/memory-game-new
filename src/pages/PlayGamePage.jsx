@@ -8,7 +8,7 @@ const PlayGamePage = () => {
   
     // Function to navigate to the login page
     const handlePlayGame = () => {
-      navigate('/login'); // Navigate to the login page
+      navigate('/game'); // Navigate to the login page Emilija: I changed from login to game
     };
   
     return (
