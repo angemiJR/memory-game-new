@@ -1,16 +1,12 @@
-import "../styles/Game.css"
+import React from "react";
+// import "../styles/Score.css";
 
-function Score() {
+function Score({ score }) {
     return (
-    <>
-        <div>
-            
-           <h2>Your score is 125</h2>
-    
+        <div className="score-container">
+            <h2>Score: {score}</h2>
         </div>
-    </>
-    )
-
+    );
 }
 
 export default Score;
