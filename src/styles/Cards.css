@@ -1,9 +1,10 @@
 .card {
     position: relative;
-    width: 11em;
-    height: 15em;
+    width: 70%;
+    height:100%;
     cursor: pointer;
     place-self: center;
+    aspect-ratio: 3/4;
 }
 
 .front,

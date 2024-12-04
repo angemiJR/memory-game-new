@@ -12,32 +12,34 @@ function Game() {
 
     // Fetch data from API and initialize cards
     useEffect(() => {
-        async function fetchCardData() {
-            try {
-                const response = await fetch("https://dog.ceo/api/breeds/image/random/6");
-                const data = await response.json();
-                const cardContent = data.message.map((imageUrl, index) => ({
-                    id: index, // Unique ID for each card pair
-                    content: imageUrl, // Image URL as content
-                }));
-                const shuffledCards = shuffleArray([...cardContent, ...cardContent].map((card, index) => ({
-                    ...card,
-                    uniqueId: index, // Unique ID for each card instance
-                })));
-                setCardData(shuffledCards);
-                setIsLoading(false);
-            } catch (error) {
-                console.error("Error fetching card data:", error);
-                setIsLoading(false);
-            }
-        }
-
         fetchCardData();
     }, []);
 
+    // Fetch cards and shuffle
+    const fetchCardData = async () => {
+        setIsLoading(true); // Set loading state
+        try {
+            const response = await fetch("https://dog.ceo/api/breeds/image/random/6");
+            const data = await response.json();
+            const cardContent = data.message.map((imageUrl, index) => ({
+                id: index, // Unique ID for each card pair
+                content: imageUrl, // Image URL as content
+            }));
+            const shuffledCards = shuffleArray([...cardContent, ...cardContent].map((card, index) => ({
+                ...card,
+                uniqueId: index, // Unique ID for each card instance
+            })));
+            setCardData(shuffledCards);
+        } catch (error) {
+            console.error("Error fetching card data:", error);
+        } finally {
+            setIsLoading(false); // Data loaded
+        }
+    };
+
     // Shuffle an array
     const shuffleArray = (array) => {
-        return array.sort(() => Math.random() - 0.5); 
+        return array.sort(() => Math.random() - 0.5);
     };
 
     // Handle card click
@@ -70,10 +72,21 @@ function Game() {
     const isFlipped = (card) =>
         flippedCards.some((c) => c.uniqueId === card.uniqueId) || matchedCards.includes(card.id);
 
+    // Reset the game
+    const resetGame = () => {
+        setFlippedCards([]); // Clear flipped cards
+        setMatchedCards([]); // Clear matched cards
+        setScore(0); // Reset score
+        fetchCardData(); // Fetch and shuffle cards again
+    };
+
     return (
         <div className="main">
             <div className="header">
                 <Score score={score} />
+               
+                <button onClick={resetGame}>Reset game</button>
+               
             </div>
             <div className="cards">
                 {isLoading ? (
