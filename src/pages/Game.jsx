@@ -74,10 +74,10 @@ function Game() {
 
     // Reset the game
     const resetGame = () => {
-        setFlippedCards([]); // Clear flipped cards
-        setMatchedCards([]); // Clear matched cards
+        setFlippedCards([]); 
+        setMatchedCards([]); 
         setScore(0); // Reset score
-        fetchCardData(); // Fetch and shuffle cards again
+        fetchCardData();
     };
 
     return (
