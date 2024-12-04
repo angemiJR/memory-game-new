@@ -1,6 +1,5 @@
-@import "./Fonts.css";
+@import url("./styles/Fonts.css");
 
-/* PlayGamePage.css */
 
 .play-game-page {
     height: 95vh;
@@ -13,23 +12,26 @@
     background-repeat: no-repeat; 
     margin: 0;
     font-family: 'PokemonFontSolid', sans-serif; 
-  }
-  
-  .pokemon-theme {
+}
+
+.pokemon-theme {
     text-align: center;
     background-color: #f7c8c8;
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  h1 {
+    max-width: 100%;
+    box-sizing: border-box;  
+}
+
+h1 {
     font-size: 3rem;
     color: #ff6347; 
     margin-bottom: 20px;
-  }
-  
-  .start-button {
+}
+
+
+.start-button {
     padding: 15px 30px;
     font-size: 1.2rem;
     background-color: #ff6347; 
@@ -38,9 +40,66 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
-  
-  .start-button:hover {
+}
+
+.start-button:hover {
     background-color: #e0533b;
-  }
-  
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+  .pokemon-theme {
+    padding: 20px;  
+    margin-top: 10px; 
+    width: 90%;
+}
+}
+
+@media (max-width: 768px) {
+    .pokemon-theme {
+        padding: 15px; 
+        margin-top: 10px; 
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 2rem;  
+    }
+
+    .start-button {
+        padding: 12px 15px; 
+        font-size: 1.1rem;  
+    }
+   }
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;  
+    }
+
+    .start-button {
+        padding: 10px 10px;  
+        font-size: 1rem;  
+    }
+
+    .pokemon-theme {
+        padding: 10px; 
+        width: 85%;  
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 320px) {
+    .pokemon-theme {
+        padding: 8px;  
+        width: 85%;  
+    }
+
+    h1 {
+        font-size: 1.5rem;  
+    }
+
+    .start-button {
+        padding: 5px 10px; 
+        font-size: 0.9rem; 
+    }
+}
