@@ -1,7 +1,4 @@
-@font-face {
-    font-family: 'PokemonFontSolid';
-    src: url('../assets/fonts/Pokemon_Solid.ttf') format('truetype');
-}
+@import "./Fonts.css";
 
 h2 {
     font-family: 'PokemonFontSolid', Arial, sans-serif;
