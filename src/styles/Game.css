@@ -39,11 +39,11 @@ h2 {
     padding: 20px;
     display:grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr) ;
+    grid-template-rows: repeat(3, 1fr) ;
     gap: 1em;
 }
 
-button {
+.header button {
     background-color: #ff6347;
     border: none;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
@@ -51,6 +51,8 @@ button {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    border-radius: 5px 5px;
+    padding: 0px 10px;
 
     font-family: 'PokemonFontSolid', Arial, sans-serif;
     font-size: 2em;
