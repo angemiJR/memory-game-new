@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../styles/Game.css";
 import Cards from "../components/Cards.jsx";
 import Score from "../components/Score.jsx";
+import GameOver from "../components/GameOver.jsx";
 
 function Game() {
     const [cardData, setCardData] = useState([]); // Stores shuffled cards
@@ -9,6 +10,8 @@ function Game() {
     const [matchedCards, setMatchedCards] = useState([]); // Tracks matched cards
     const [score, setScore] = useState(0); // Game score
     const [isLoading, setIsLoading] = useState(true); // Loading state
+    const [mistakes, setMistakes] = useState(0); // Tracks number of mistakes
+    const [isGameOver, setIsGameOver] = useState(false); // Game over state
 
     // Fetch data from API and initialize cards
     useEffect(() => {
@@ -61,6 +64,14 @@ function Game() {
         if (firstCard.id === secondCard.id) {
             setMatchedCards((prev) => [...prev, firstCard.id]);
             setScore((prev) => prev + 1);
+        }  else {
+            setMistakes((prev) => {
+                const newMistakes = prev + 1;
+                if (newMistakes >= 10) {
+                    setIsGameOver(true); // Trigger game over
+                }
+                return newMistakes;
+            });
         }
 
         setTimeout(() => {
@@ -76,7 +87,9 @@ function Game() {
     const resetGame = () => {
         setFlippedCards([]); 
         setMatchedCards([]); 
-        setScore(0); // Reset score
+        setScore(0); 
+        setMistakes(0); 
+        setIsGameOver(false);
         fetchCardData();
     };
 
@@ -84,25 +97,29 @@ function Game() {
         <div className="main">
             <div className="header">
                 <Score score={score} />
-               
+                <h2>Mistakes: {mistakes} / 10</h2>
                 <button onClick={resetGame}>Reset game</button>
-               
+           
             </div>
-            <div className="cards">
-                {isLoading ? (
-                    <p>Loading cards...</p>
-                ) : (
-                    cardData.map((card) => (
-                        <Cards
-                            key={card.uniqueId}
-                            content={card.content}
-                            isFlipped={isFlipped(card)}
-                            onClick={() => handleCardClick(card)}
-                        />
-                    ))
-                )}
-            </div>
-        </div>
+    
+
+    {isGameOver ? (
+    <div className="game_over">
+        <GameOver />
+    </div>
+) : (
+    <div className="cards">
+        {cardData.map((card) => (
+            <Cards
+                key={card.uniqueId}
+                content={card.content}
+                isFlipped={isFlipped(card)}
+                onClick={() => handleCardClick(card)}
+            />
+        ))}
+    </div>
+)}
+</div>
     );
 }
 
