@@ -53,3 +53,14 @@
 .card.show-back .back {
     visibility: visible;
 }
+
+@media (max-width: 768px) {
+    .card {
+        max-width: 90%;
+        width: 90%;
+        max-height:70%;
+        height: 75%;
+   
+      
+    }
+}
