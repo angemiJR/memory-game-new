@@ -58,9 +58,17 @@
     .card {
         max-width: 90%;
         width: 90%;
-        max-height:70%;
+        max-height:75%;
         height: 75%;
    
       
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+    
+        max-height:85%;
+        height: 85%;
     }
 }

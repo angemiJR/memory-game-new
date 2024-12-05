@@ -110,3 +110,32 @@ h2 {
         padding: 10px;
     }
 }
+
+@media (max-width: 480px) {
+    h2 {
+       
+        font-size: 1em;
+           
+    }
+
+    .main {
+        width: 100vw;
+        height: 75vh;
+    
+  
+    }
+
+    .header button {
+        font-size: 1em;
+    }
+    .cards {
+        width: 90%;
+        max-width: 90%;
+        height: 80%;
+        max-height: 80%;
+
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(4, 1fr) ;
+        gap: 5px;
+    }
+}
