@@ -19,7 +19,7 @@ function Game() {
     const fetchCardData = async () => {
         setIsLoading(true); // Set loading state
         try {
-            const response = await fetch("https://dog.ceo/api/breeds/image/random/6");
+            const response = await fetch("https://dog.ceo/api/breeds/image/random/9");
             const data = await response.json();
             const cardContent = data.message.map((imageUrl, index) => ({
                 id: index, // Unique ID for each card pair

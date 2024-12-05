@@ -1,7 +1,9 @@
 .card {
     position: relative;
-    width: 90%;
-    height:90%;
+    max-width: 70%;
+    width: 70%;
+    max-height:90%;
+    height: 90%;
     cursor: pointer;
     place-self: center;
   
@@ -34,7 +36,7 @@
 .back {
     background-color: white;
     border: 3px solid rgb(207, 207, 207);
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     visibility: hidden;
