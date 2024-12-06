@@ -46,7 +46,6 @@ h1 {
     align-items: center;
     border-radius: 5px 5px;
     padding: 0px 10px;
-
     font-family: 'PokemonFontSolid', Arial, sans-serif;
     font-size: 2em;
     text-align: center;
@@ -58,6 +57,10 @@ h1 {
 
 .start-button:hover {
     background-color: #e0533b;
+}
+.start-button:active{
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
