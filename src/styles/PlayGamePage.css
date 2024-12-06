@@ -1,5 +1,6 @@
 
 
+
 .play-game-page {
     height: 90vh;
     display: flex;
@@ -14,54 +15,35 @@
 }
 
 .pokemon-theme {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     text-align: center;
     background-color: #f7c8c8;
     padding: 30px;
     border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 100%;
     box-sizing: border-box;  
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 h1 {
     font-size: 3rem;
     color: #ff6347; 
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    -webkit-text-stroke: 2px rgba(70, 0, 0, 0.155);
 }
 
 
 .start-button {
-    text-align: center;
-    background-color: #ff6347;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    background-color: #ff6347; 
+    color: white;
     border: none;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px 5px;
-    padding: 0px 10px;
-    font-family: 'PokemonFontSolid', Arial, sans-serif;
-    font-size: 2em;
-    text-align: center;
+    border-radius: 5px;
     cursor: pointer;
-    color: rgb(255, 201, 75);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    -webkit-text-stroke: 2px rgba(70, 0, 0, 0.155);
+    transition: background-color 0.3s ease;
 }
 
 .start-button:hover {
     background-color: #e0533b;
-}
-.start-button:active{
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
