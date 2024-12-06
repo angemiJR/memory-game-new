@@ -21,26 +21,33 @@ ul {
     gap: 40px;
     padding: 5px;
     color: white;
-    
+    font-size: 30px;    
 }
 
 a {
-    text-decoration: none;
-    color:  #f9dbd6;
-}
-
-a:hover {
+    text-decoration: none; 
+    color: #f9dbd6; 
+    font-weight: bold; 
+    font-size: 40px;
+    display: inline-block; /* Enables transforms */
+    transition: transform 0.2s ease, color 0.2s ease; 
+  }
+  
+  a:hover {
     cursor: pointer;
-    color:  #f9dbd6;
-}
-
-a:visited {
-    color: #f9dbd6;
-}
-a:active {
-    transform: scale(1.05); /* Should move the link down, but it doesnt. ? */
-   
-}
+    color: #f9dbd6; 
+    transform: scale(1.1); 
+  }
+  
+  a:visited {
+    color: #f6cac2; 
+  }
+  
+  a:active {
+    /* transform: scale(0.95);  */
+    color: #f9dbd6; 
+  }
+  
 
 
 

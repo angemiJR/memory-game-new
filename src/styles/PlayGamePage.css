@@ -23,15 +23,17 @@
     background-color: #f7c8c8;
     padding: 30px;
     border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 100%;
     box-sizing: border-box;  
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 h1 {
     font-size: 3rem;
     color: #ff6347; 
     margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    -webkit-text-stroke: 2px rgba(70, 0, 0, 0.155);
 }
 
 
