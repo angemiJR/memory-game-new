@@ -1,7 +1,7 @@
 .card {
     position: relative;
-    max-width: 70%;
-    width: 70%;
+    max-width: 75%;
+    width: 75%;
     max-height:95%;
     height: 95%;
     cursor: pointer;
@@ -54,21 +54,21 @@
     visibility: visible;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) and (max-width: 1400px) {
     .card {
-        max-width: 90%;
-        width: 90%;
-        max-height:75%;
-        height: 75%;
+        max-width: 80%;
+        width: 80%;
+        max-height:95%;
+        height: 95%;
    
       
     }
 }
 
-@media (max-width: 480px) {
+@media (min-width: 480px) and (max-width: 768px) {
     .card {
-    
-        max-height:85%;
-        height: 85%;
+        max-width: 85%;
+        width: 85%;
+     
     }
 }
