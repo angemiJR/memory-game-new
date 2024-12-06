@@ -1,11 +1,4 @@
 @import "./Fonts.css";
-/* nav {
-    visibility: hidden;
-}
-
-.navbar {
-    visibility: hidden;
-} */
 
     h2 {
         font-family: 'PokemonFontSolid', Arial, sans-serif;
@@ -21,7 +14,7 @@
     
     .main {
         width: 100vw;
-        height: 90vh;
+        height: 100vh;
         background-image: url("../assets/wallpaper.jpg");
         background-size: cover;
         background-repeat: no-repeat;
@@ -53,6 +46,7 @@
     }
     
     .header button {
+        text-align: center;
         background-color: #ff6347;
         border: none;
         box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
@@ -62,7 +56,6 @@
         align-items: center;
         border-radius: 5px 5px;
         padding: 0px 10px;
-    
         font-family: 'PokemonFontSolid', Arial, sans-serif;
         font-size: 2em;
         text-align: center;
