@@ -76,7 +76,7 @@ function Game() {
         } else {
             setMistakes((prev) => {
                 const newMistakes = prev + 1;
-                if (newMistakes >= 10) {
+                if (newMistakes >= 15) {
                     setIsGameOver(true); // Trigger game over
                 }
                 return newMistakes;
@@ -109,7 +109,7 @@ function Game() {
                     <button className="back_btn">Back</button>
                 </Link>
                 <Score score={score} />
-                <h2>Mistakes: {mistakes} / 10</h2>
+                <h2>Mistakes: {mistakes} / 15</h2>
                 <button onClick={resetGame}>Reset game</button>
             </div>
 
