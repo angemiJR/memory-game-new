@@ -101,10 +101,12 @@ function Game() {
         <div className="main">
 
             <div className="header">
-                
-                <Link to="/">
-                    <button>Back</button>
-                </Link>
+
+                <button className="back_btn">
+                    <Link to="/" className="back_link">
+                        Back
+                    </Link>
+                </button>
 
                 <Score score={score} />
                 <h2>Mistakes: {mistakes} / 10</h2>

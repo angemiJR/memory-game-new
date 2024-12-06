@@ -82,6 +82,26 @@
         display: block;
     }
 
+    .back_link {
+        text-decoration: none;
+        
+      }
+      
+      /* a:hover {
+        cursor: pointer;
+        color: #f9dbd6; 
+        transform: scale(1.1); 
+      }
+      
+      a:visited {
+        color: #f6cac2; 
+      } */
+      
+      /* a:active {
+    
+        color: #f9dbd6; 
+      } */
+
 
 
 

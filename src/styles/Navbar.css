@@ -24,7 +24,7 @@ ul {
     font-size: 30px;    
 }
 
-a {
+.nav_a {
     text-decoration: none; 
     color: #f9dbd6; 
     font-weight: bold; 
@@ -33,17 +33,17 @@ a {
     transition: transform 0.2s ease, color 0.2s ease; 
   }
   
-  a:hover {
+  .nav_a:hover {
     cursor: pointer;
     color: #f9dbd6; 
     transform: scale(1.1); 
   }
   
-  a:visited {
+  .nav_a:visited {
     color: #f6cac2; 
   }
   
-  a:active {
+  .nav_a:active {
     /* transform: scale(0.95);  */
     color: #f9dbd6; 
   }
