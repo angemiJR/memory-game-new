@@ -9,7 +9,8 @@ nav {
     align-items: center;
     max-width: 100%;
     height: 8vh;
-    font-family: 'Pokemon', sans-serif;
+    font-family: 'PokemonFontSolid', Arial, sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
     
 }
 
@@ -20,23 +21,33 @@ ul {
     gap: 40px;
     padding: 5px;
     color: white;
-    
+      
 }
 
-a {
-    text-decoration: none;
-    color: white;
-}
-
-a:hover {
+.nav_a {
+    text-decoration: none; 
+    color: #f9dbd6; 
+    font-weight: bold; 
+    font-size: 30px;
+    display: inline-block; /* makes transforms possible*/
+    transition: transform 0.2s ease, color 0.2s ease; 
+  }
+  
+  .nav_a:hover {
     cursor: pointer;
-    color: #fff5f5; 
-}
-
-a:visited {
-    color: white;
-}
-
+    color: #f9dbd6; 
+    transform: scale(1.1); 
+  }
+  
+  .nav_a:visited {
+    color: #f6cac2; 
+  }
+  
+  .nav_a:active {
+    /* transform: scale(0.95);  */
+    color: #f9dbd6; 
+  }
+  
 
 
 
