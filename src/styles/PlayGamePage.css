@@ -15,6 +15,10 @@
 }
 
 .pokemon-theme {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     background-color: #f7c8c8;
     padding: 30px;
@@ -32,14 +36,24 @@ h1 {
 
 
 .start-button {
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    background-color: #ff6347; 
-    color: white;
+    text-align: center;
+    background-color: #ff6347;
     border: none;
-    border-radius: 5px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px 5px;
+    padding: 0px 10px;
+
+    font-family: 'PokemonFontSolid', Arial, sans-serif;
+    font-size: 2em;
+    text-align: center;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    color: rgb(255, 201, 75);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    -webkit-text-stroke: 2px rgba(70, 0, 0, 0.155);
 }
 
 .start-button:hover {
