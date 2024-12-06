@@ -21,15 +21,15 @@ ul {
     gap: 40px;
     padding: 5px;
     color: white;
-    font-size: 30px;    
+      
 }
 
 .nav_a {
     text-decoration: none; 
     color: #f9dbd6; 
     font-weight: bold; 
-    font-size: 40px;
-    display: inline-block; /* Enables transforms */
+    font-size: 30px;
+    display: inline-block; /* makes transforms possible*/
     transition: transform 0.2s ease, color 0.2s ease; 
   }
   
