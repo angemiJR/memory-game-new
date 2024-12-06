@@ -3,7 +3,7 @@ import "./styles/Navbar.css"
 
 function Navbar () {
 
-    const userName = "Ferret";
+    // const userName = "Ferret"; removing this for now, keeping it if we need it later
 
     return (
         <div className="navbar">
@@ -12,7 +12,7 @@ function Navbar () {
                     <li><Link to="/">New Game</Link></li>
                     <li><Link to="/login">Log In</Link></li>
                     <li><Link to="/sign-up">Sign up</Link></li>
-                    <li><Link to="/user-info">{userName}</Link></li>
+                    {/* <li><Link to="/user-info">{userName}</Link></li> */}
                 </ul>
             </nav>
         </div>
