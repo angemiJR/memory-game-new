@@ -1,5 +1,11 @@
 @import "./Fonts.css";
+/* nav {
+    visibility: hidden;
+}
 
+.navbar {
+    visibility: hidden;
+} */
 
     h2 {
         font-family: 'PokemonFontSolid', Arial, sans-serif;
@@ -135,15 +141,49 @@
 
     .header button {
         font-size: 1em;
+       height: 40px;
+       width: 100px;
+            padding: 0px 0px;
+      
+        
     }
     .cards {
         width: 90%;
         max-width: 90%;
         height: 80%;
         max-height: 80%;
-/* 
-        grid-template-columns: repeat(5, 1fr);
-        grid-template-rows: repeat(4, 1fr) ;
-        gap: 5px; */
+    }
+}
+@media (min-width: 320px) and (max-width: 480px) {
+    h2 {
+       
+        font-size: 1em;
+           
+    }
+
+    .main {
+        width: 100vw;
+        height: 75vh;
+    
+  
+    }
+    .header {
+        width: 100%;
+    
+    }
+
+    .header button {
+        font-size: 1em;
+       height: 40px;
+       width: 100px;
+            padding: 0px 0px;
+      
+        
+    }
+    .cards {
+        width: 90%;
+        max-width: 90%;
+        height: 80%;
+        max-height: 80%;
     }
 }
