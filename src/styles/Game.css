@@ -111,13 +111,12 @@ h2 {
 
     .main {
 
-        height: 92vh;
         justify-content: center;
 
     }
 
     .header {
-        width: 100%;
+        width: 95%;
         margin-bottom: 20px;
     }
 
@@ -133,6 +132,10 @@ h2 {
         max-height: 75%;
         padding: 10px;
     }
+    .back_btn {
+        margin-right: 0px;
+        height: 60px;
+    }
 }
 
 @media (min-width: 480px) and (max-width: 768px) {
@@ -142,19 +145,15 @@ h2 {
 
     }
 
-    .main {
-        width: 100vw;
-        height: 75vh;
-
-
-    }
-
     .header {
         width: 100%;
+        
 
     }
+    
 
-    .header button {
+    .header button,
+    .back_btn {
         font-size: 1em;
         height: 40px;
         width: 100px;
@@ -163,46 +162,58 @@ h2 {
 
     }
 
+    .back_btn{
+        margin-right: 20px;
+    }
+
     .cards {
         width: 90%;
-        max-width: 90%;
-        height: 80%;
-        max-height: 80%;
+        min-width: 300px;
+        max-width: 450px;
+        height: 70%;
+        max-height: 600px;
+        min-height: 350px;
+        gap: 0em;
+        padding: 0px;
     }
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
     h2 {
 
-        font-size: 1em;
+        font-size: 0.3em;
 
     }
 
-    .main {
-        width: 100vw;
-        height: 75vh;
-
-
-    }
 
     .header {
         width: 100%;
-
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
     }
 
-    .header button {
-        font-size: 1em;
+    .header button,
+    .back_btn button {
+        font-size: 0.5em;
         height: 40px;
         width: 100px;
         padding: 0px 0px;
+        margin: 8px;
 
 
     }
 
     .cards {
         width: 90%;
-        max-width: 90%;
-        height: 80%;
-        max-height: 80%;
+        min-width: 300px;
+        max-width: 450px;
+        height: 70%;
+        max-height: 600px;
+        min-height: 350px;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        gap: 0em;
+        padding: 0px;
     }
 }
