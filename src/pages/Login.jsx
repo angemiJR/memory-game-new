@@ -1,8 +1,13 @@
 import '../styles/reset.css';
 import '../styles/Login.css'
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
- 
+ const navigateToGame = useNavigate();
+
+ const handleLogin = () => {
+    navigateToGame('/game');
+ }
     return (
         <div className="login__body">
         <form action="">
@@ -15,7 +20,7 @@ function Login() {
                     <label htmlFor="password">PASSWORD</label>
                     <input type="text" id="password" name="password" placeholder='Enter password here'/>
                 </div>
-                <button>LOG IN</button>
+                <button onClick={handleLogin}>LOG IN</button>
             </div>
         </form>
     </div>
