@@ -2,42 +2,37 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import '../styles/reset.css';
 import '../styles/Sign-up.css';
-//import LocalStorage from '../components/local-storage';
-
 
 function SignUp() {
-    //<LocalStorage/>
-    //function LocalStorage() --> need to make this into an exportable function
-        const storedUser = JSON.parse(localStorage.getItem('user'));
-        const storedPassword = JSON.parse(localStorage.getItem('password'));
 
-        console.log(storedUser);
-        console.log(storedPassword);
+    const [info, setInfo] = useState({ //defines the object to be stored
+        username: "",
+        password: ""
+    });
 
-        const [user, setUser] = useState("");
-        const [password, setPassword] = useState("");
-
-        function handelUserChange (e) {
-            setUser(e.target.value);
-        }
-        useEffect (() => {          //need this to be onclick
-            localStorage.setItem('user', JSON.stringify(user));
-        },[user]);
-
-        function handlePasswordChange (e) {
-            setPassword(e.target.value);
-        }
-        useEffect(() => {           //need this to be onclick
-            localStorage.setItem('password', JSON.stringify(password));
-        }, [password]);
-    
+    const handelUsernameChange = (e) => {   //updates the username
+        let updatedValue = {};
+        updatedValue = {username: e.target.value}
+        setInfo(info => ({
+            ...info,
+            ...updatedValue
+        }));
+    }
+    const handelPasswordChange = (e) => {   //updates the password
+        let updatedValue = {};
+        updatedValue = {password: e.target.value}
+        setInfo(info => ({
+            ...info,
+            ...updatedValue
+        }));
+    }
     const navToLogin = useNavigate();
 
     const handleSignUpClick = () => {
-        navToLogin('/login');
         useEffect(() => {
-            localStorage.setItem('', JSON.stringify(info))
-        })
+            localStorage.setItem('info', JSON.stringify(info))  
+        }, [info])                          //submits the info as wth the key of 'info' to local storage
+        navToLogin('/login');
     }
     return (
         <div className="signup__body">
@@ -46,13 +41,13 @@ function SignUp() {
                 <div className="signup__form">
                     <div>
                         <label htmlFor="username">USERNAME</label>
-                        <input type="text" id="username" name="username" value={user} onChange={handelUserChange} placeholder='Select a username' />
+                        <input type="text" id="username" name="username" onChange={handelUsernameChange} placeholder='Select a username' />
                     </div>
                     <div>
                         <label htmlFor="password">PASSWORD</label>
-                        <input type="text" id="password" name="password" value={password} onChange={handlePasswordChange} placeholder='Select a password' />
+                        <input type="text" id="password" name="password" onChange={handelPasswordChange} placeholder='Select a password' />
                     </div>
-                    <button onClick={handleSignUpClick}>SIGN UP</button>
+                    <button type='submit' onClick={handleSignUpClick}>SIGN UP</button>
                 </div>
             </form>
             <div className='signup__body_marking marking-R'></div>
