@@ -30,8 +30,8 @@ function Login() {
     console.log(loginInfo);
     const navigateToGame = useNavigate();
 
-    const handleLogin = () => {
-        storedInfo === loginInfo ?    //something is wrong with this matching, it get's the same console.log() putout but somethow they are not equal.
+    const handleLogin = () => {     //matches the information in the string to allow access to the game
+        loginInfo.username === storedInfo.username && loginInfo.password === storedInfo.password ?    
         navigateToGame('/game') : alert("Incorrect credantials, please try again.");
          
     }
