@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import '../styles/reset.css';
 import '../styles/Sign-up.css';
 
@@ -10,7 +10,7 @@ function SignUp() {
         password: ""
     });
 
-    const handelUsernameChange = (e) => {   //updates the username
+    const handleUsernameChange = (e) => {   //updates the username
         let updatedValue = {};
         updatedValue = {username: e.target.value}
         setInfo(info => ({
@@ -18,7 +18,7 @@ function SignUp() {
             ...updatedValue
         }));
     }
-    const handelPasswordChange = (e) => {   //updates the password
+    const handlePasswordChange = (e) => {   //updates the password
         let updatedValue = {};
         updatedValue = {password: e.target.value}
         setInfo(info => ({
@@ -28,10 +28,10 @@ function SignUp() {
     }
     const navToLogin = useNavigate();
 
-    const handleSignUpClick = () => {
-        useEffect(() => {
-            localStorage.setItem('info', JSON.stringify(info))  
-        }, [info])                          //submits the info as wth the key of 'info' to local storage
+    const handleSignUpClick = (e) => {
+        e.preventDefault()        
+        localStorage.setItem('info', JSON.stringify(info))  
+                                //submits the info as wth the key of 'info' to local storage
         navToLogin('/login');
     }
     return (
@@ -41,13 +41,13 @@ function SignUp() {
                 <div className="signup__form">
                     <div>
                         <label htmlFor="username">USERNAME</label>
-                        <input type="text" id="username" name="username" onChange={handelUsernameChange} placeholder='Select a username' />
+                        <input type="text" id="username" name="username" onChange={handleUsernameChange} placeholder='Select a username' />
                     </div>
                     <div>
                         <label htmlFor="password">PASSWORD</label>
-                        <input type="text" id="password" name="password" onChange={handelPasswordChange} placeholder='Select a password' />
+                        <input type="text" id="password" name="password" onChange={handlePasswordChange} placeholder='Select a password' />
                     </div>
-                    <button type='submit' onClick={handleSignUpClick}>SIGN UP</button>
+                    <button type='button' onClick={handleSignUpClick}>SIGN UP</button>
                 </div>
             </form>
             <div className='signup__body_marking marking-R'></div>
