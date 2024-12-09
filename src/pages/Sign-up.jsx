@@ -12,7 +12,7 @@ function SignUp() {
 
     const handelUsernameChange = (e) => {   //updates the username
         let updatedValue = {};
-        updatedValue = {username: e.target.value}
+        updatedValue = {username:e.target.value}
         setInfo(info => ({
             ...info,
             ...updatedValue
@@ -20,7 +20,7 @@ function SignUp() {
     }
     const handelPasswordChange = (e) => {   //updates the password
         let updatedValue = {};
-        updatedValue = {password: e.target.value}
+        updatedValue = {password:e.target.value}
         setInfo(info => ({
             ...info,
             ...updatedValue
@@ -29,11 +29,10 @@ function SignUp() {
     const navToLogin = useNavigate();
 
     const handleSignUpClick = () => {
-        useEffect(() => {
-            localStorage.setItem('info', JSON.stringify(info))  
-        }, [info])                          //submits the info as wth the key of 'info' to local storage
+        localStorage.setItem("info", JSON.stringify(info)); //submits the info as wth the key of 'info' to local storage
         navToLogin('/login');
     }
+
     return (
         <div className="signup__body">
             <div className='signup__body_marking marking-L'></div>
@@ -47,12 +46,12 @@ function SignUp() {
                         <label htmlFor="password">PASSWORD</label>
                         <input type="text" id="password" name="password" onChange={handelPasswordChange} placeholder='Select a password' />
                     </div>
-                    <button type='submit' onClick={handleSignUpClick}>SIGN UP</button>
+                    <button onClick={handleSignUpClick}>SIGN UP</button>
                 </div>
             </form>
             <div className='signup__body_marking marking-R'></div>
         </div>
-    )
+    );
 }
 
 export default SignUp;
