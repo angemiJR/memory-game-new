@@ -33,7 +33,7 @@ function SignUp() {
         if (info.username && info.password) {
             localStorage.setItem('info', JSON.stringify(info)); // Save credentials
                                 //submits the info as wth the key of 'info' to local storage
-         alert("Sign in successful!");
+        //  alert("Sign in successful!");
 
         // Redirect to the login page
         navToLogin('/login');
