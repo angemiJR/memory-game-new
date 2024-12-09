@@ -9,7 +9,7 @@ function Navbar () {
         <div className="navbar">
             <nav>
                 <ul>
-                    <li><Link className="nav_a" to="/">New Game</Link></li>
+                    <li><Link className="nav_a" to="/Login">New Game</Link></li>
                     {/* <li><Link to="/login">Log In</Link></li> */}
                     <li><Link className="nav_a" to="/sign-up">Sign up</Link></li>
                     {/* <li><Link to="/user-info">{userName}</Link></li> */}

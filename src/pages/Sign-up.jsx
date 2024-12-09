@@ -30,9 +30,16 @@ function SignUp() {
 
     const handleSignUpClick = (e) => {
         e.preventDefault()        
-        localStorage.setItem('info', JSON.stringify(info))  
+        if (info.username && info.password) {
+            localStorage.setItem('info', JSON.stringify(info)); // Save credentials
                                 //submits the info as wth the key of 'info' to local storage
+         alert("Sign in successful!");
+
+        // Redirect to the login page
         navToLogin('/login');
+        } else {
+        alert("Please fill in both username and password."); 
+        }
     }
     return (
         <div className="signup__body">
