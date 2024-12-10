@@ -36,7 +36,7 @@ function SignUp() {
         //  alert("Sign in successful!");
 
         // Redirect to the login page
-        navToLogin('/login');
+        navToLogin('/game');
         } else {
         alert("Please fill in both username and password."); 
         }
