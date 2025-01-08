@@ -6,6 +6,8 @@
     height: 90%;
     cursor: pointer;
     place-self: center;
+    transform-style: preserve-3d; /* Enable 3D transformations */
+    transition: transform 0.3s; /* Smooth flip animation */
   
 }
 
@@ -43,11 +45,14 @@
     background-repeat: no-repeat;
     background-position: center;
     visibility: hidden;
+    transform: rotateY(180deg);
 }
 
 .card.show-back .front {
     visibility: hidden;
+    transform: rotateY(180deg); /* Flip card */
 }
+
 
 .card.show-back .back {
     visibility: visible;
