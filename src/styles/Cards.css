@@ -1,9 +1,9 @@
 .card {
     position: relative;
-    max-width: 95%;
-    width: 95%;
-    max-height:95%;
-    height: 95%;
+    max-width:75%;
+    width: 75%;
+    max-height:90;
+    height: 90%;
     cursor: pointer;
     place-self: center;
   
@@ -16,14 +16,13 @@
 .front,
 .back {
     position: absolute;
-    width: 100%;
+    width: 95%;
     height: 100%;
     border-radius: 5px;
     box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.2em;
   
 }
 
