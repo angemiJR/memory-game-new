@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import '../styles/reset.css';
 import '../styles/Sign-up.css';
 
@@ -10,17 +10,17 @@ function SignUp() {
         password: ""
     });
 
-    const handelUsernameChange = (e) => {   //updates the username
+    const handleUsernameChange = (e) => {   //updates the username
         let updatedValue = {};
-        updatedValue = {username:e.target.value}
+        updatedValue = {username: e.target.value}
         setInfo(info => ({
             ...info,
             ...updatedValue
         }));
     }
-    const handelPasswordChange = (e) => {   //updates the password
+    const handlePasswordChange = (e) => {   //updates the password
         let updatedValue = {};
-        updatedValue = {password:e.target.value}
+        updatedValue = {password: e.target.value}
         setInfo(info => ({
             ...info,
             ...updatedValue
@@ -28,11 +28,19 @@ function SignUp() {
     }
     const navToLogin = useNavigate();
 
-    const handleSignUpClick = () => {
-        localStorage.setItem("info", JSON.stringify(info)); //submits the info as wth the key of 'info' to local storage
-        navToLogin('/login');
-    }
+    const handleSignUpClick = (e) => {
+        e.preventDefault()        
+        if (info.username && info.password) {
+            localStorage.setItem('info', JSON.stringify(info)); // Save credentials
+                                //submits the info as wth the key of 'info' to local storage
+        //  alert("Sign in successful!");
 
+        // Redirect to the login page
+        navToLogin('/game');
+        } else {
+        alert("Please fill in both username and password."); 
+        }
+    }
     return (
         <div className="signup__body">
             <div className='signup__body_marking marking-L'></div>
@@ -40,18 +48,18 @@ function SignUp() {
                 <div className="signup__form">
                     <div>
                         <label htmlFor="username">USERNAME</label>
-                        <input type="text" id="username" name="username" onChange={handelUsernameChange} placeholder='Select a username' />
+                        <input type="text" id="username" name="username" onChange={handleUsernameChange} placeholder='Select a username' />
                     </div>
                     <div>
                         <label htmlFor="password">PASSWORD</label>
-                        <input type="text" id="password" name="password" onChange={handelPasswordChange} placeholder='Select a password' />
+                        <input type="text" id="password" name="password" onChange={handlePasswordChange} placeholder='Select a password' />
                     </div>
-                    <button onClick={handleSignUpClick}>SIGN UP</button>
+                    <button type='button' onClick={handleSignUpClick}>SIGN UP</button>
                 </div>
             </form>
             <div className='signup__body_marking marking-R'></div>
         </div>
-    );
+    )
 }
 
 export default SignUp;
