@@ -12,11 +12,31 @@ function Game() {
     const [score, setScore] = useState(0); // Game score
     const [mistakes, setMistakes] = useState(0); // Tracks number of mistakes
     const [isGameOver, setIsGameOver] = useState(false); // Game over state
+    const [time, setTime] = useState(0); // Timer state
+
 
     // Fetch data from API and initialize cards
     useEffect(() => {
         fetchCardData();
     }, []);
+
+   // Timer
+   useEffect(() => {
+    if (isGameOver) return;
+
+    const timer = setInterval(() => {
+        setTime((prevTime) => prevTime + 1);
+    }, 1000);
+
+    return () => clearInterval(timer); // Cleanup on component unmount or when game ends
+}, [isGameOver]);
+
+ // Format time as MM:SS
+ const formatTime = (seconds) => {
+    const minutes = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
+};
 
     // Fetch data and shuffle
     const fetchCardData = async () => {
@@ -99,7 +119,9 @@ function Game() {
         setScore(0);
         setMistakes(0);
         setIsGameOver(false);
+        setTime(0); // Reset time
         fetchCardData();
+       
     };
 
     return (
@@ -110,6 +132,7 @@ function Game() {
                 </Link>
                 <Score score={score} />
                 <h2>Mistakes: {mistakes} / 15</h2>
+                <h2>Time: {formatTime(time)}</h2>
                 <button onClick={resetGame}>Reset game</button>
             </div>
 
