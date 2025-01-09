@@ -13,6 +13,7 @@ function Game() {
     const [mistakes, setMistakes] = useState(0); // Tracks number of mistakes
     const [isGameOver, setIsGameOver] = useState(false); // Game over state
     const [time, setTime] = useState(0); // Timer state
+    const [successMessage, setSuccessMessage] = useState(""); // Success message state
 
 
     // Fetch data from API and initialize cards
@@ -20,23 +21,23 @@ function Game() {
         fetchCardData();
     }, []);
 
-   // Timer
-   useEffect(() => {
-    if (isGameOver) return;
+    // Timer
+    useEffect(() => {
+        if (isGameOver) return;
 
-    const timer = setInterval(() => {
-        setTime((prevTime) => prevTime + 1);
-    }, 1000);
+        const timer = setInterval(() => {
+            setTime((prevTime) => prevTime + 1);
+        }, 1000);
 
-    return () => clearInterval(timer); // Cleanup on component unmount or when game ends
-}, [isGameOver]);
+        return () => clearInterval(timer); // Cleanup on component unmount or when game ends
+    }, [isGameOver]);
 
- // Format time as MM:SS
- const formatTime = (seconds) => {
-    const minutes = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
-};
+    // Format time as MM:SS
+    const formatTime = (seconds) => {
+        const minutes = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        return `${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
+    };
 
     // Fetch data and shuffle
     const fetchCardData = async () => {
@@ -89,23 +90,30 @@ function Game() {
     // Check if two flipped cards match
     const checkForMatch = (cards) => {
         const [firstCard, secondCard] = cards;
-
         if (firstCard.id === secondCard.id) {
-            setMatchedCards((prev) => [...prev, firstCard.id]);
+            setMatchedCards((prev) => {
+                const updatedMatches = [...prev, firstCard.id];
+
+                // Check if all cards are matched
+                if (updatedMatches.length === cardData.length / 2) {
+                    setIsGameOver(true);
+                    setSuccessMessage(`Great job! Your time is ${formatTime(time)}. Can you beat that?`);
+                }
+
+                return updatedMatches;
+            });
             setScore((prev) => prev + 1);
         } else {
             setMistakes((prev) => {
                 const newMistakes = prev + 1;
                 if (newMistakes >= 15) {
-                    setIsGameOver(true); // Trigger game over
+                    setIsGameOver(true);
                 }
                 return newMistakes;
             });
         }
 
-        setTimeout(() => {
-            setFlippedCards([]);
-        }, 1000);
+        setTimeout(() => setFlippedCards([]), 1000);
     };
 
     // Check if a card is flipped or matched
@@ -120,8 +128,9 @@ function Game() {
         setMistakes(0);
         setIsGameOver(false);
         setTime(0); // Reset time
+        setSuccessMessage(""); // Reset success message
         fetchCardData();
-       
+
     };
 
     return (
@@ -130,13 +139,18 @@ function Game() {
                 <Link to="/" className="back_link">
                     <button className="back_btn">Back</button>
                 </Link>
-                <Score score={score} />
+                {/* <Score score={score} /> */}
                 <h2>Mistakes: {mistakes} / 15</h2>
                 <h2>Time: {formatTime(time)}</h2>
                 <button onClick={resetGame}>Reset game</button>
             </div>
 
-            {isGameOver ? (
+            {isGameOver && matchedCards.length === cardData.length / 2 ? (
+                <div className="success_message">
+                    <h2>{successMessage}</h2>
+                    <button onClick={resetGame} className="play_again_btn">Play Again</button>
+                </div>
+            ) : isGameOver ? (
                 <div className="game_over">
                     <GameOver />
                 </div>

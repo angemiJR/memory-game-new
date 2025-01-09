@@ -46,7 +46,8 @@ h2 {
 }
 
 .header button,
-.back_btn button {
+.back_btn button, 
+.play_again_btn{
     text-align: center;
     background-color: #ff6347;
     border: none;
@@ -70,7 +71,8 @@ h2 {
     transform: scale(1.05);
 }
 
-.game_over {
+.game_over,
+.success_message {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -120,7 +122,8 @@ h2 {
         margin-bottom: 20px;
     }
 
-    .header button {
+    .header button,
+    .play_again_btn {
         font-size: 1.5em;
         -webkit-text-stroke: 1px rgba(70, 0, 0, 0.155);
     }
@@ -153,7 +156,8 @@ h2 {
     
 
     .header button,
-    .back_btn {
+    .back_btn,
+    .play_again_btn {
         font-size: 1em;
         height: 40px;
         width: 100px;
@@ -194,7 +198,8 @@ h2 {
     }
 
     .header button,
-    .back_btn button {
+    .back_btn button,
+    .play_again_btn {
         font-size: 1em;
         height: 50px;
         width: 50px;
